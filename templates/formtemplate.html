@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Employee Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* sky blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff; /* white form background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 80%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2; /* blue header text */
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4a90e2; /* blue submit button */
+            color: #ffffff; /* white text */
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ebd; /* darker blue on hover */
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h1>Company Employee Form</h1>
+        {{ form.hidden_tag() }}
+        
+        <p>
+            <b>{{ form.userid.label }}</b><br>
+            {{ form.userid(size=32) }}<br>
+            {% for error in form.userid.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <b>{{ form.username.label }}</b><br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <b>{{ form.currentcompany.label }}</b><br>
+            {{ form.currentcompany(size=32) }}<br>
+            {% for error in form.currentcompany.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <b>{{ form.previouscompany.label }}</b><br>
+            {{ form.previouscompany(size=32) }}<br>
+            {% for error in form.previouscompany.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <b>{{ form.duration.label }}</b><br>
+            {{ form.duration(size=32) }}<br>
+            {% for error in form.duration.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <b>{{ form.dateofbirth.label }}</b><br>
+            {{ form.dateofbirth(size=32) }}<br>
+            {% for error in form.dateofbirth.errors %}
+                <span class="error-message">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</body>
+</html>

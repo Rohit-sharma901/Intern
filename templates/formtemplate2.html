@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Home</title>
+    <style>
+        body {
+            background-color: #6a1b9a; /* Deep purple background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            max-width: 600px;
+            width: 80%;
+        }
+
+        h1 {
+            color: #ea80fc; /* Pink header text */
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .btn {
+            background-color: #9c27b0; /* Purple button background */
+            color: #ffffff; /* White button text */
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            outline: none;
+        }
+
+        .btn:hover {
+            background-color: #7b1fa2; /* Darker purple on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Company Home</h1>
+        <form action="/home" method="get">
+            <button class="btn" type="submit">Add New Record</button>
+        </form>
+        <form action="/view" method="get">
+            <button class="btn" type="submit">View Records</button>
+        </form>
+    </div>
+</body>
+</html>

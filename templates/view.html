@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light grey background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff; /* White background for content */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333333; /* Dark grey header text */
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #4caf50; /* Green button */
+            color: #ffffff; /* White text */
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #ffffff; /* White background for list items */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate background color for even items */
+        }
+
+        .back-button, .add-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button button, .add-button button {
+            background-color: #2196f3; /* Blue button */
+            color: #ffffff; /* White text */
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover, .add-button button:hover {
+            background-color: #1e87e6; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Records</h1>
+        <form method="POST">
+            <label for="userid">Search by UserID:</label><br>
+            <input type="text" id="userid" name="userid"><br>
+            <label for="username">Search by Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="currentcompany">Search by Current Company:</label><br>
+            <input type="text" id="currentcompany" name="currentcompany"><br>
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Records</h2>
+        <ul>
+            {% if records %}
+                {% for record in records %}
+                <li>
+                    <b>UserID:</b> {{ record.get('UserID') }}<br>
+                    <b>Username:</b> {{ record.get('Username') }}<br>
+                    <b>Current Company:</b> {{ record.get('Current_Company') }}<br>
+                    <b>Previous Company:</b> {{ record.get('Previous_Company') }}<br>
+                    <b>Duration:</b> {{ record.get('Duration') }}<br>
+                    <b>Position:</b> {{ record.get('Position') }}<br>
+                    <b>DOB:</b> {{ record.get('DOB') }}
+                </li>
+                {% endfor %}
+            {% else %}
+                <li>No records found</li>
+            {% endif %}
+        </ul>
+
+        <div class="back-button">
+            <form action="/">
+                <button type="submit">Back to Main Screen</button>
+            </form>
+        </div>
+        <div class="add-button">
+            <form action="/home">
+                <button type="submit">Add New Record</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
