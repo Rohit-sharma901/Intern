@@ -75,12 +75,7 @@ def assign_task():
     })
     return jsonify({'message': 'Task assigned'})
 
-@app.route('/tasks/<intern_id>', methods=['GET'])
-def get_tasks(intern_id):
-    intern_tasks = list(tasks.find({'intern_id': intern_id}))
-    for task in intern_tasks:
-        task['_id'] = str(task['_id'])
-    return jsonify(intern_tasks)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
